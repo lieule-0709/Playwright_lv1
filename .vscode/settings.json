@@ -1,0 +1,38 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#8ebac2",
+    "titleBar.activeForeground": "#000000",
+    "activityBar.background": "#8ebac2",
+    "activityBar.foreground": "#000000",
+    "statusBar.background": "#8ebac2",
+    "statusBar.foreground": "#000000"
+  },
+  "cSpell.words": [
+    "AUTOTEST",
+    "backoff",
+    "boscan",
+    "chakra",
+    "codegen",
+    "combobox",
+    "domcontentloaded",
+    "filechooser",
+    "kintone",
+    "linkify",
+    "listbox",
+    "listitem",
+    "msedge",
+    "mycard",
+    "papaparse",
+    "salesdraft",
+    "testcase",
+    "testid",
+    "textbox",
+    "viewports",
+    "XARD"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "adminUser": {
+    "username": "administrator",
+    "password": ""
+  },
+  "parallelUsers": [
+    {
+      "username": "admin1",
+      "password": ""
+    },
+    {
+      "username": "admin2",
+      "password": ""
+    },
+    {
+      "username": "admin3",
+      "password": ""
+    },
+    {
+      "username": "admin4",
+      "password": ""
+    }
+  ]
+}
