@@ -2,12 +2,14 @@ import { test as base } from "@playwright/test";
 import DashboardMainPage from "pages/dashboard-main-page";
 import LoginPage from "pages/login-page";
 import NewPageForm from "pages/new-page-form";
+import ChoosePanelsPage from "pages/choose-panels-page";
 import users from "fixtures/data/users.json";
 
 // Declare the types of your fixtures.
 type CommonFixture = {
   dashboardMainPage: DashboardMainPage;
   newPageForm: NewPageForm;
+  choosePanelsPage: ChoosePanelsPage;
 };
 
 export type Options = { defaultRepo: string };
@@ -31,9 +33,12 @@ export const test = base.extend<Options & CommonFixture>({
     // await use(loginPage);
     await use(new DashboardMainPage(page));
   },
+  choosePanelsPage: async({page}, use) => {
+    await use(new ChoosePanelsPage(page));
+  },
   newPageForm: async ({ page }, use) => {
     await use(new NewPageForm(page));
-  },
+  }
 });
 
 export { expect, Page, Locator } from "@playwright/test";

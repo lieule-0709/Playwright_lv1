@@ -1,7 +1,9 @@
+import { promises } from "dns";
 import { Page, expect, test } from "fixtures/user-based-worker-fixture";
 
 export default class DashboardMainPage {
   private readonly menuLocator = this.page.locator("#main-menu");
+  private readonly choosePanelsLocator = this.page.locator('.mn-panels');
   private readonly settingLocator = this.menuLocator.locator(".mn-setting");
   private readonly deleteLnk = this.settingLocator.locator("a.delete");
 
@@ -10,6 +12,12 @@ export default class DashboardMainPage {
   async displays(): Promise<void> {
     await test.step("Verify dashboard main page displays", async () => {
       await expect(this.menuLocator.locator("li.active a.active")).toHaveText("Execution Dashboard");
+    });
+  }
+
+  async expandChoosePanels(): Promise<void> {
+    await test.step("Expand Choose Panels form", async () => {
+      await this.choosePanelsLocator.click();
     });
   }
 

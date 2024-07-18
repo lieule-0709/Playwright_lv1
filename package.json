@@ -14,7 +14,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.7.0",
     "@playwright/test": "1.40.1",
+    "@types/eslint__js": "^8.42.3",
     "@types/luxon": "3.4.1",
     "@types/node": "20.10.7",
     "@types/underscore": "1.11.15",
@@ -23,11 +25,12 @@
     "@typescript-eslint/parser": "6.18.1",
     "allure-commandline": "2.25.0",
     "allure-playwright": "2.10.0",
-    "eslint": "8.56.0",
+    "eslint": "^8.56.0",
     "eslint-config-prettier": "9.1.0",
     "luxon": "3.4.4",
     "prettier": "3.2.2",
-    "typescript": "5.3.3",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^7.16.1",
     "underscore": "1.13.6",
     "uuid": "9.0.1"
   }
