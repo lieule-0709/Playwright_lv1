@@ -18,7 +18,7 @@ export default class ChoosePanelsPage {
     async presetPanelsDisplay(): Promise<void> {
         await test.step("Verify all pre-set panels are populated and sorted correctly", async () => {
           const panels = await this.panelsLocator.allTextContents();
-          await expect(panels).toEqual(presetPanels);
+          expect(panels).toEqual(presetPanels);
         });
       }
   }
