@@ -6,7 +6,8 @@ export default class DashboardMainPage {
   private readonly choosePanelsLocator = this.page.locator('.mn-panels');
   private readonly settingLocator = this.menuLocator.locator(".mn-setting");
   private readonly deleteLnk = this.settingLocator.locator("a.delete");
-
+  private readonly administerLocator = this.page.locator("link", { hasText: 'Administer' });
+  private readonly panelsOfAdministerLnk = this.administerLocator.locator("link", { hasText: 'Panels' });
   constructor(private readonly page: Page) {}
 
   async displays(): Promise<void> {
