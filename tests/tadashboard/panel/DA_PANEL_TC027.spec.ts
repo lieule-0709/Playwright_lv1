@@ -11,6 +11,7 @@ const panelName = "Zpanel" + DateTimeHelper.getToday();
 test("Verify that when 'Choose panels' form is expanded all pre-set panels are populated and sorted correctly", async ({
   dashboardMainPage,
   choosePanelsPage,
+  newPageForm,
   newPanelForm,
   panelsPage,
 }) => {
@@ -21,11 +22,11 @@ test("Verify that when 'Choose panels' form is expanded all pre-set panels are p
   // Navigate to Dashboard login page
   // Login with valid account
   // Go to Global Setting -> Add page
-  // await dashboardMainPage.selectSetting("Add Page");
+  await dashboardMainPage.selectSetting("Add Page");
 
   // Enter page name to Page Name field.
   // Click OK button
-  // await newPageForm.create({ pageName: pageName, public: true });
+  await newPageForm.create({ pageName: pageName, public: true });
 
   // Go to Global Setting -> Create Panel
   await dashboardMainPage.selectSetting("Create Panel");

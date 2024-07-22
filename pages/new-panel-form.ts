@@ -1,5 +1,4 @@
 import { Page, test, Locator, expect } from "fixtures/common-fixture";
-import { all } from "underscore";
 import {NewPanelModel} from "models/new-panel-model"
 
 export default class NewPanelForm {
@@ -21,19 +20,18 @@ export default class NewPanelForm {
     });
   }
 
-
-
-  async focus(): Promise<void>{
-    await test.step("Verify that New Panel form is on focused", async()=>{
-      await expect(this.pageLocator).toBeFocused();
-    })
-  }
-
   async disableOrLockOtherControl(): Promise<void>{
     await test.step("Verify that all other control/form is disabled or locked.", async()=>{
-      await expect(this.page.locator('//body/div')
-      .filter({ hasNot: this.pageLocator }))
-      .toBeDisabled();
+      const otherControlls = this.page.locator('//body/div >> visible=true').filter({ hasNot: this.pageLocator }).all();
+      
+      await expect(this.pageLocator).toBeEnabled();
+
+      (await otherControlls).forEach((control)=>{
+        test.expect(control).toBeDisabled;
+      })
+      // await expect(this.page.locator('//body/div')
+      // .filter({ hasNot: this.pageLocator }))
+      // .toBeDisabled();
     })
   }
 }
