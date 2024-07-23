@@ -5,7 +5,8 @@ import NewPageForm from "pages/new-page-form";
 import ChoosePanelsPage from "pages/choose-panels-page";
 import NewPanelForm from "pages/new-panel-form";
 import PanelsPage from "pages/panels-page";
-import DataProfilesPage from "pages/data-profiles-page"
+import DataProfilesPage from "pages/data-profiles-page";
+import NewDataProfilePage from "pages/new-data-profile-page";
 import users from "fixtures/data/users.json";
 
 // Declare the types of your fixtures.
@@ -16,6 +17,8 @@ type CommonFixture = {
   newPanelForm: NewPanelForm;
   panelsPage: PanelsPage;
   dataProfilesPage: DataProfilesPage;
+  newDataProfilePage: NewDataProfilePage;
+  username: string;
 };
 
 export type Options = { defaultRepo: string };
@@ -39,7 +42,7 @@ export const test = base.extend<Options & CommonFixture>({
     // await use(loginPage);
     await use(new DashboardMainPage(page));
   },
-  choosePanelsPage: async({page}, use) => {
+  choosePanelsPage: async ({ page }, use) => {
     await use(new ChoosePanelsPage(page));
   },
   newPageForm: async ({ page }, use) => {
@@ -51,9 +54,15 @@ export const test = base.extend<Options & CommonFixture>({
   panelsPage: async ({ page }, use) => {
     await use(new PanelsPage(page));
   },
-  dataProfilesPage: async({ page }, use) => {
+  dataProfilesPage: async ({ page }, use) => {
     await use(new DataProfilesPage(page));
-  }
+  },
+  newDataProfilePage: async ({ page }, use) => {
+    await use(new NewDataProfilePage(page));
+  },
+  username: async ({}, use) => {
+    await use(users.adminUser.username);
+  },
 });
 
 export { expect, Page, Locator } from "@playwright/test";

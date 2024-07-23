@@ -3,12 +3,12 @@ import { Page, expect, test } from "fixtures/user-based-worker-fixture";
 
 export default class DashboardMainPage {
   private readonly menuLocator = this.page.locator("#main-menu");
-  private readonly headMenuLocator = this.page.locator('#header');
-  private readonly choosePanelsLocator = this.page.locator('.mn-panels');
+  private readonly headMenuLocator = this.page.locator("#header");
+  private readonly choosePanelsLocator = this.page.locator(".mn-panels");
   private readonly settingLocator = this.menuLocator.locator(".mn-setting");
   private readonly deleteLnk = this.settingLocator.locator("a.delete");
-  private readonly administerLocator = this.page.locator("link", { hasText: 'Administer' });
-  private readonly panelsOfAdministerLnk = this.administerLocator.locator("link", { hasText: 'Panels' });
+  private readonly administerLocator = this.page.locator("link", { hasText: "Administer" });
+  private readonly panelsOfAdministerLnk = this.administerLocator.locator("link", { hasText: "Panels" });
   constructor(private readonly page: Page) {}
 
   async displays(): Promise<void> {
@@ -85,17 +85,23 @@ export default class DashboardMainPage {
       if (menuItems.length > 5) {
         throw new Error("Too many nested pages");
       }
-  
+
       if (menuItems.length == 1) {
         await this.headMenuLocator.getByText(menuItems[0], { exact: true }).click();
         return;
       }
-  
+
       for (let i = 0; i < menuItems.length - 1; i++) {
         await this.headMenuLocator.getByText(menuItems[i], { exact: true }).hover();
       }
-  
+
       await this.headMenuLocator.getByText(menuItems[menuItems.length - 1], { exact: true }).click();
-    })
+    });
+  }
+
+  async pageVisible(pageName: string): Promise<void> {
+    await test.step(`Verify that page: ${pageName} is visible`, async () => {
+      test.expect(this.menuLocator.getByText(pageName, { exact: true })).toBeVisible();
+    });
   }
 }
