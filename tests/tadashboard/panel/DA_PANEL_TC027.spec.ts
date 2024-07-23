@@ -18,7 +18,6 @@ test("Verify that when 'Choose panels' form is expanded all pre-set panels are p
   dashboardMPage = dashboardMainPage;
   panelsPageIns = panelsPage;
 
-
   // Navigate to Dashboard login page
   // Login with valid account
   // Go to Global Setting -> Add page
@@ -30,12 +29,12 @@ test("Verify that when 'Choose panels' form is expanded all pre-set panels are p
 
   // Go to Global Setting -> Create Panel
   await dashboardMainPage.selectSetting("Create Panel");
-  
+
   // Enter Panel name into Display Name textbox
   // Select any value in Series* dropdown list
   // Click Ok button
   // Click Ok button in Panel Configuration popup
-  await newPanelForm.create({displayName: panelName, series: "location"});
+  await newPanelForm.create({ displayName: panelName, series: "location" });
 
   // Click on Choose Panel menu icon next to Global Setting icon
   await dashboardMainPage.expandChoosePanels();
