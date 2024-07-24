@@ -1,10 +1,8 @@
 import { test } from "fixtures/common-fixture";
-import { NewDataProfileModel } from "models/new-data-profile-model";
 import { DateTimeHelper } from "support/helpers/date-time-helper";
 
 const profileName = "Profile-" + DateTimeHelper.getToday();
-let newDataProfile: NewDataProfileModel;
-newDataProfile = { name: profileName, shortFileds: ["Name", "Location"] };
+const newDataProfile = { name: profileName, shortFileds: ["Name", "Location"] };
 
 test("Verify that user is able to add levels of fields ", async ({
   dashboardMainPage,

@@ -1,4 +1,4 @@
-import { expect, test, Page, Locator } from "fixtures/common-fixture";
+import { test, Page, Locator } from "fixtures/common-fixture";
 import DashboardMainPage from "./dashboard-main-page";
 import DialogHelper from "support/helpers/dialog-helper";
 
@@ -11,7 +11,7 @@ export default class PanelsPage {
 
   async deleteAllPanels(): Promise<void> {
     //Select Administer -> Panels
-    let dashboardMainPage = new DashboardMainPage(this.page);
+    const dashboardMainPage = new DashboardMainPage(this.page);
     await dashboardMainPage.selectHeadMenu("Administer -> Panels");
 
     // Check all and delete

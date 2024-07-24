@@ -1,4 +1,3 @@
-import { promises } from "dns";
 import { Page, test, Locator } from "fixtures/user-based-worker-fixture";
 import { NewDataProfileModel } from "models/new-data-profile-model";
 

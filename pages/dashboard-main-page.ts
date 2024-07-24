@@ -1,4 +1,3 @@
-import { promises } from "dns";
 import { Page, expect, test } from "fixtures/user-based-worker-fixture";
 
 export default class DashboardMainPage {
@@ -101,7 +100,7 @@ export default class DashboardMainPage {
 
   async pageVisible(pageName: string): Promise<void> {
     await test.step(`Verify that page: ${pageName} is visible`, async () => {
-      test.expect(this.menuLocator.getByText(pageName, { exact: true })).toBeVisible();
-    });
+      await test.expect(this.menuLocator.getByText(pageName, { exact: true })).toBeVisible();
+    })
   }
 }

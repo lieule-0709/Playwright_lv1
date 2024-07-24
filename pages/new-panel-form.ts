@@ -5,7 +5,6 @@ export default class NewPanelForm {
   private readonly pageLocator: Locator = this.page.locator(".editpanelDlg");
   private readonly displayNameTxt: Locator = this.pageLocator.locator("#txtDisplayName");
   private readonly seriesDdl: Locator = this.pageLocator.locator("#cbbSeriesField");
-  private readonly seriesGroupOptions: Locator = this.pageLocator.locator("#cbbSeriesField > optgroup");
   private readonly okBtn: Locator = this.pageLocator.locator("#OK");
 
   constructor(private readonly page: Page) {}
@@ -22,12 +21,15 @@ export default class NewPanelForm {
 
   async disableOrLockOtherControl(): Promise<void> {
     await test.step("Verify that all other control/form is disabled or locked.", async () => {
-      const otherControlls = this.page.locator("//body/div >> visible=true").filter({ hasNot: this.pageLocator }).all();
-
-      await expect(this.pageLocator).toBeEnabled();
-
-      (await otherControlls).forEach((control) => {
-        test.expect(control).toBeDisabled;
+      this.pageLocator.click();
+      await expect(this.pageLocator).toBeFocused();
+      
+      await this.page.locator("//body/div").filter({ hasNot: this.pageLocator }).count();
+      //otherControlls is a list of links
+      const otherControlls =  await this.page.locator("body > *:visible").filter({ hasNot: this.pageLocator }).getByRole("link").all();
+      console.log(otherControlls);
+      otherControlls.forEach((control) => {
+        control.isEnabled()
       });
       // await expect(this.page.locator('//body/div')
       // .filter({ hasNot: this.pageLocator }))

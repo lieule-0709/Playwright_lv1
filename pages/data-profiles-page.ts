@@ -11,7 +11,7 @@ export default class DataProfilesPage {
 
   async open(): Promise<void> {
     await test.step("Select Administer -> Data Profiles", async () => {
-      let dashboardMainPage = new DashboardMainPage(this.page);
+      const dashboardMainPage = new DashboardMainPage(this.page);
       await dashboardMainPage.selectHeadMenu("Administer -> Data Profiles");
     });
   }
