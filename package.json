@@ -25,12 +25,12 @@
     "@typescript-eslint/parser": "6.18.1",
     "allure-commandline": "2.25.0",
     "allure-playwright": "2.10.0",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "eslint-config-prettier": "9.1.0",
     "luxon": "3.4.4",
     "prettier": "3.2.2",
-    "typescript": "^5.3.3",
-    "typescript-eslint": "^7.16.1",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.17.0",
     "underscore": "1.13.6",
     "uuid": "9.0.1"
   }

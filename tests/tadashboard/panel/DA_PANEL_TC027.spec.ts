@@ -6,7 +6,7 @@ import { DateTimeHelper } from "support/helpers/date-time-helper";
 let dashboardMPage: DashboardMainPage;
 let panelsPageIns: PanelsPage;
 const pageName = DateTimeHelper.getToday();
-const panelName = "Zpanel" + DateTimeHelper.getToday();
+const panelName = "zbox";
 
 test("Verify that when 'Choose panels' form is expanded all pre-set panels are populated and sorted correctly", async ({
   dashboardMainPage,

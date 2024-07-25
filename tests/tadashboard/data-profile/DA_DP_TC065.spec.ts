@@ -9,7 +9,7 @@ test("Verify that all Pre-set Data Profiles are populated correctly", async ({
   // Enter valid Username and Password
   // Click Login
   // Click Administer->Data Profiles
-  await dataProfilesPage.open();
+  await dashboardMainPage.openDataProfilesPage();
 
   //Click on Add new panel button
   await dataProfilesPage.presetDataProfilePopulated();

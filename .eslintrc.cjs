@@ -6,7 +6,7 @@ module.exports = {
   root: true,
   rules: {
     "@typescript-eslint/no-floating-promises": "error",
-    "@typescript-eslint/no-unsafe-call": "error"
+    "@typescript-eslint/no-unsafe-call": "error",
   },
   parserOptions: {
     sourceType: "module",

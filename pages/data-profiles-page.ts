@@ -1,5 +1,4 @@
 import { expect, test, Page, Locator } from "fixtures/common-fixture";
-import DashboardMainPage from "./dashboard-main-page";
 import presetDataProfiles from "fixtures/data/presetDataProfiles.json";
 
 export default class DataProfilesPage {
@@ -8,13 +7,6 @@ export default class DataProfilesPage {
   private readonly addNewLnk: Locator = this.page.getByRole("link", { name: "Add New", exact: true });
 
   constructor(private readonly page: Page) {}
-
-  async open(): Promise<void> {
-    await test.step("Select Administer -> Data Profiles", async () => {
-      const dashboardMainPage = new DashboardMainPage(this.page);
-      await dashboardMainPage.selectHeadMenu("Administer -> Data Profiles");
-    });
-  }
 
   async presetDataProfilePopulated(): Promise<void> {
     // Check all and delete

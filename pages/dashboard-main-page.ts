@@ -22,6 +22,12 @@ export default class DashboardMainPage {
     });
   }
 
+  async openDataProfilesPage(): Promise<void> {
+    await test.step("Select Administer -> Data Profiles", async () => {
+      await this.selectHeadMenu("Administer -> Data Profiles");
+    });
+  }
+
   async selectSetting(action: string): Promise<void> {
     await test.step("Select action in setting", async () => {
       await this.settingLocator.hover();
@@ -101,6 +107,6 @@ export default class DashboardMainPage {
   async pageVisible(pageName: string): Promise<void> {
     await test.step(`Verify that page: ${pageName} is visible`, async () => {
       await test.expect(this.menuLocator.getByText(pageName, { exact: true })).toBeVisible();
-    })
+    });
   }
 }

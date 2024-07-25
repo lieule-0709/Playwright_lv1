@@ -18,10 +18,9 @@ type CommonFixture = {
   panelsPage: PanelsPage;
   dataProfilesPage: DataProfilesPage;
   newDataProfilePage: NewDataProfilePage;
-  username: string;
 };
 
-export type Options = { defaultRepo: string };
+export type Options = { defaultRepo: string; username: string };
 
 // Extend base test.
 // This new "test" can be used in multiple test files, and each of them will get the fixtures.
@@ -29,6 +28,7 @@ export const test = base.extend<Options & CommonFixture>({
   // Define an option and provide a default value.
   // We can later override it in the config.
   defaultRepo: ["SampleRepository", { option: true }],
+  username: [users.adminUser.username, { option: true }],
 
   dashboardMainPage: async ({ page, defaultRepo }, use) => {
     // Set up the fixture.
@@ -59,9 +59,6 @@ export const test = base.extend<Options & CommonFixture>({
   },
   newDataProfilePage: async ({ page }, use) => {
     await use(new NewDataProfilePage(page));
-  },
-  username: async ({}, use) => {
-    await use(users.adminUser.username);
   },
 });
 

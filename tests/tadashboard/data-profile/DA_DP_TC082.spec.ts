@@ -11,7 +11,7 @@ test("Verify that user is able to add levels of fields ", async ({
 }) => {
   // Log in Dashboard
   // Navigate to Data Profiles page
-  await dataProfilesPage.open();
+  await dashboardMainPage.openDataProfilesPage();
 
   // Click on "Add New"
   await dataProfilesPage.clickAddNew();
