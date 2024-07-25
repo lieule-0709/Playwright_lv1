@@ -32,7 +32,7 @@ test("Verify that 'Public' pages can be visible and accessed by all users of wor
   await dashboardMPage.selectHeadMenu(`${username} -> Logout`);
 
   // Log in with another valid account
-  //(can't create the new acc so I use the existed acc to simulate this step)
+  //(can't create the new acc so I use the existed acc to simulate this step, only do this on exercise :D)
   await loginPage.login(users.adminUser.username, users.adminUser.password);
 
   // Check newly added page is visible

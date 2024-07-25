@@ -1,4 +1,4 @@
-import { Page, expect, test } from "fixtures/user-based-worker-fixture";
+import { Locator, Page, expect, test } from "fixtures/user-based-worker-fixture";
 
 export default class DashboardMainPage {
   private readonly menuLocator = this.page.locator("#main-menu");
@@ -7,7 +7,6 @@ export default class DashboardMainPage {
   private readonly settingLocator = this.menuLocator.locator(".mn-setting");
   private readonly deleteLnk = this.settingLocator.locator("a.delete");
   private readonly administerLocator = this.page.locator("link", { hasText: "Administer" });
-  private readonly panelsOfAdministerLnk = this.administerLocator.locator("link", { hasText: "Panels" });
   constructor(private readonly page: Page) {}
 
   async displays(): Promise<void> {
@@ -85,28 +84,50 @@ export default class DashboardMainPage {
   }
 
   async selectHeadMenu(levelItem: string): Promise<void> {
-    await test.step("Delete page then verify dialog messages", async () => {
-      const menuItems: Array<string> = levelItem.split("->").map((s) => s.trim());
-      if (menuItems.length > 5) {
-        throw new Error("Too many nested pages");
-      }
+    const menuItems: Array<string> = levelItem.split("->").map((s) => s.trim());
 
-      if (menuItems.length == 1) {
-        await this.headMenuLocator.getByText(menuItems[0], { exact: true }).click();
-        return;
-      }
+    if (menuItems.length > 5) {
+      throw new Error("Too many nested pages");
+    }
 
-      for (let i = 0; i < menuItems.length - 1; i++) {
-        await this.headMenuLocator.getByText(menuItems[i], { exact: true }).hover();
-      }
+    if (menuItems.length == 1) {
+      await this.headMenuLocator.getByText(menuItems[0], { exact: true }).click();
+      return;
+    }
 
-      await this.headMenuLocator.getByText(menuItems[menuItems.length - 1], { exact: true }).click();
-    });
+    for (let i = 0; i < menuItems.length - 1; i++) {
+      await this.headMenuLocator.getByText(menuItems[i], { exact: true }).hover();
+    }
+
+    await this.headMenuLocator.getByText(menuItems[menuItems.length - 1], { exact: true }).click();
   }
 
   async pageVisible(pageName: string): Promise<void> {
     await test.step(`Verify that page: ${pageName} is visible`, async () => {
       await test.expect(this.menuLocator.getByText(pageName, { exact: true })).toBeVisible();
+    });
+  }
+
+  async pageDeleted(pageName: string): Promise<void> {
+    await test.step(`Verify that page: ${pageName} is deleted`, async () => {
+      const pages: Array<string> = pageName.split("->").map((s) => s.trim());
+
+      if (pages.length == 1) {
+        await test.expect.soft(this.menuLocator.getByText(pageName, { exact: true })).toHaveCount(0);
+        return;
+      }
+
+      let page: Locator = this.menuLocator.getByText(pages[0], { exact: true });
+      for (let i = 1; i < pages.length; i++) {
+        page = page.getByText(pages[i], { exact: true });
+      }
+      await test.expect.soft(page).toHaveCount(0);
+    });
+  }
+
+  async deleleLnkDisapear(): Promise<void> {
+    await test.step("Verify that delete link is disapear", async () => {
+      await test.expect(this.deleteLnk).toHaveCount(0);
     });
   }
 }

@@ -37,6 +37,7 @@ test(
     await dashboardMainPage.deletePageAndVerifyDialogMessage(deletePageMsg);
 
     // Check children page is deleted
+    await dashboardMainPage.pageDeleted(`${parentPageName}->${chillPageName}`);
 
     // Click on parent page
     await dashboardMainPage.selectMenu(parentPageName);
@@ -47,7 +48,12 @@ test(
     await dashboardMainPage.deletePageAndVerifyDialogMessage(deletePageMsg);
 
     // Check parent page is deleted
+    await dashboardMainPage.pageDeleted(parentPageName);
+
     // Click on "Overview" page
+    await dashboardMainPage.selectMenu("Overview");
+
     // Check "Delete" link disappears
+    await dashboardMainPage.deleleLnkDisapear();
   },
 );
