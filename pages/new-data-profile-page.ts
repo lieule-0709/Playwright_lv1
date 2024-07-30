@@ -4,12 +4,12 @@ import { NewDataProfileModel } from "models/new-data-profile-model";
 export default class NewDataProfilePage {
   private readonly pageMenuLocator: Locator = this.page.locator("#wstep");
   private readonly sortFields: Locator = this.pageMenuLocator.getByText("Sort Fields");
-  private readonly profilesettingsdetailLocator: Locator = this.page.locator("#profilesettingsdetail");
-  private readonly nameTxt: Locator = this.profilesettingsdetailLocator.locator("#txtProfileName");
+  private readonly profileSettingsDetailLocator: Locator = this.page.locator("#profilesettingsdetail");
+  private readonly nameTxt: Locator = this.profileSettingsDetailLocator.locator("#txtProfileName");
   private readonly fieldsDdl: Locator = this.page.locator("#cbbFields");
   private readonly addLevelBtn: Locator = this.page.getByRole("button", { name: "Add Level" });
   private readonly sortFieldCriteriasLbl: Locator = this.page.locator(".sortFieldName");
-  private readonly nextBtn: Locator = this.profilesettingsdetailLocator.getByRole("button", { name: "Next" });
+  private readonly nextBtn: Locator = this.profileSettingsDetailLocator.getByRole("button", { name: "Next" });
   constructor(private readonly page: Page) {}
 
   async enterGeneralSetting(data: NewDataProfileModel): Promise<void> {
@@ -27,7 +27,7 @@ export default class NewDataProfilePage {
     });
   }
 
-  async itemAddedToCriteriaList(field: string): Promise<void> {
+  async verifyItemAddedToCriteriaList(field: string): Promise<void> {
     await test.step(`Verify that field: ${field} is added to sorting criteria list`, async () => {
       const sortFieldCriterias = await this.sortFieldCriteriasLbl.allInnerTexts();
       test.expect(sortFieldCriterias).toContain(field);

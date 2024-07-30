@@ -8,7 +8,7 @@ export default class DashboardMainPage {
   private readonly deleteLnk = this.settingLocator.locator("a.delete");
   constructor(private readonly page: Page) {}
 
-  async displays(): Promise<void> {
+  async verifyDisplays(): Promise<void> {
     await test.step("Verify dashboard main page displays", async () => {
       await expect(this.menuLocator.locator("li.active a.active")).toHaveText("Execution Dashboard");
     });
@@ -101,13 +101,13 @@ export default class DashboardMainPage {
     await this.headMenuLocator.getByText(menuItems[menuItems.length - 1], { exact: true }).click();
   }
 
-  async pageVisible(pageName: string): Promise<void> {
+  async verifyPageVisible(pageName: string): Promise<void> {
     await test.step(`Verify that page: ${pageName} is visible`, async () => {
       await test.expect(this.menuLocator.getByText(pageName, { exact: true })).toBeVisible();
     });
   }
 
-  async pageDeleted(pageName: string): Promise<void> {
+  async verifyPageDeleted(pageName: string): Promise<void> {
     await test.step(`Verify that page: ${pageName} is deleted`, async () => {
       const pages: Array<string> = pageName.split("->").map((s) => s.trim());
 
@@ -124,7 +124,7 @@ export default class DashboardMainPage {
     });
   }
 
-  async deleleLnkDisapear(): Promise<void> {
+  async verifyDeleleLnkDisapear(): Promise<void> {
     await test.step("Verify that delete link is disapear", async () => {
       await test.expect(this.deleteLnk).toHaveCount(0);
     });

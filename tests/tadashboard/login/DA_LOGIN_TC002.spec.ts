@@ -14,5 +14,5 @@ test("Verify that user fails to login specific repository successfully via Dashb
 
   // Verify that Dashboard Error message "Username or password is invalid" appears
   await loginPage.verifyErrorMessage(loginMessage);
-  await loginPage.displays();
+  await loginPage.verifyDisplays();
 });

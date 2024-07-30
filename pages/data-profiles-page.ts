@@ -8,7 +8,7 @@ export default class DataProfilesPage {
 
   constructor(private readonly page: Page) {}
 
-  async presetDataProfilePopulated(): Promise<void> {
+  async verifyPresetDataProfilePopulated(): Promise<void> {
     // Check all and delete
     await test.step("Verify that Pre-set Data Profile are populated correctly", async () => {
       const rowCount = await this.presetDataProfileRow.count();
@@ -22,7 +22,7 @@ export default class DataProfilesPage {
     });
   }
 
-  async dataProfileListAlphabetically(): Promise<void> {
+  async verifyDataProfileListAlphabetically(): Promise<void> {
     // Check all and delete
     await test.step("Verify that Pre-set Data Profile are populated correctly", async () => {
       const dataProfiles = await this.dataProfilesRow.allInnerTexts();

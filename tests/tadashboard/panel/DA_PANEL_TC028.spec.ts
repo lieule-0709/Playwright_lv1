@@ -15,5 +15,5 @@ test("Verify that when 'Add New Panel' form is on focused all other control/form
   await panelsPage.clickAddNew();
 
   //Verify that all other control/form is disabled or locked.
-  await newPanelForm.disableOrLockOtherControl();
+  await newPanelForm.verifyOtherControlDisableOrLock();
 });

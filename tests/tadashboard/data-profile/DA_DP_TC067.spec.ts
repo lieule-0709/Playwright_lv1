@@ -9,5 +9,5 @@ test("Verify that Data Profiles are listed alphabetically", async ({ dashboardMa
   await dashboardMainPage.openDataProfilesPage();
 
   //Click on Add new panel button
-  await dataProfilesPage.dataProfileListAlphabetically();
+  await dataProfilesPage.verifyDataProfileListAlphabetically();
 });

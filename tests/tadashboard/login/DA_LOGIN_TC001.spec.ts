@@ -13,5 +13,5 @@ test("Verify that user can login specific repository successfully via Dashboard 
   await loginPage.login(users.adminUser.username, users.adminUser.password);
 
   // Verify that Dashboard Mainpage appears
-  await dashboardMainPage.displays();
+  await dashboardMainPage.verifyDisplays();
 });

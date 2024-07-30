@@ -21,7 +21,7 @@ export default class LoginPage {
     });
   }
 
-  async displays(): Promise<void> {
+  async verifyDisplays(): Promise<void> {
     await test.step("Verify login page displays", async () => {
       await expect(this.usernameTxt).toBeVisible();
       await expect(this.passwordTxt).toBeVisible();

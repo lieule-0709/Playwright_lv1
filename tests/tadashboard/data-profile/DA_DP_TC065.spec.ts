@@ -12,5 +12,5 @@ test("Verify that all Pre-set Data Profiles are populated correctly", async ({
   await dashboardMainPage.openDataProfilesPage();
 
   //Click on Add new panel button
-  await dataProfilesPage.presetDataProfilePopulated();
+  await dataProfilesPage.verifyPresetDataProfilePopulated();
 });

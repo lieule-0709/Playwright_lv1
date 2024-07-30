@@ -38,7 +38,7 @@ test("Verify that when 'Choose panels' form is expanded all pre-set panels are p
 
   // Click on Choose Panel menu icon next to Global Setting icon
   await dashboardMainPage.expandChoosePanels();
-  await choosePanelsPage.presetPanelsDisplay();
+  await choosePanelsPage.verifyPresetPanelsDisplay();
 });
 
 test.afterEach("Delete page", async () => {
