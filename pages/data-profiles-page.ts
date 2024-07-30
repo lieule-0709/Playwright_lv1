@@ -27,8 +27,6 @@ export default class DataProfilesPage {
     await test.step("Verify that Pre-set Data Profile are populated correctly", async () => {
       const dataProfiles = await this.dataProfilesRow.allInnerTexts();
       const sortedData = dataProfiles.sort();
-      console.log(dataProfiles);
-      console.log(sortedData);
       expect(dataProfiles).toEqual(sortedData);
     });
   }
