@@ -6,7 +6,6 @@ export default class DashboardMainPage {
   private readonly choosePanelsLocator = this.page.locator(".mn-panels");
   private readonly settingLocator = this.menuLocator.locator(".mn-setting");
   private readonly deleteLnk = this.settingLocator.locator("a.delete");
-  private readonly administerLocator = this.page.locator("link", { hasText: "Administer" });
   constructor(private readonly page: Page) {}
 
   async displays(): Promise<void> {
@@ -129,5 +128,5 @@ export default class DashboardMainPage {
     await test.step("Verify that delete link is disapear", async () => {
       await test.expect(this.deleteLnk).toHaveCount(0);
     });
-  }
+  }  
 }
