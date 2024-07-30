@@ -1,4 +1,3 @@
-import { Panels } from "models/panels-model";
 import { expect, test, Page, Locator } from "fixtures/common-fixture";
 import presetPanels from "fixtures/data/presetPanels.json";
 
@@ -29,14 +28,18 @@ export default class ChoosePanelsPage {
 
   async verifyPresetPanelsDisplay(): Promise<void> {
     await test.step("Verify all pre-set panels are populated and sorted correctly", async () => {
-      const allPanels: Panels = { Charts: [], Indicators: [], Reports: [], "Heat Maps": [] };
-
-      allPanels.Charts = (await this.chartsLocator.allInnerTexts()).map((txt) => txt.replace(/\u00a0/g, " "));
-      allPanels.Indicators = (await this.indicatorsLocator.allInnerTexts()).map((txt) => txt.replace(/\u00a0/g, " "));
-      allPanels.Reports = (await this.reportsLocator.allInnerTexts()).map((txt) => txt.replace(/\u00a0/g, " "));
-      allPanels["Heat Maps"] = (await this.heatmapsLocator.allInnerTexts()).map((txt) => txt.replace(/\u00a0/g, " "));
-
-      expect(allPanels).toEqual(presetPanels);
+      expect
+        .soft((await this.chartsLocator.allInnerTexts()).map((txt) => txt.replace(/\u00a0/g, " ")))
+        .toEqual(presetPanels.charts);
+      expect
+        .soft((await this.indicatorsLocator.allInnerTexts()).map((txt) => txt.replace(/\u00a0/g, " ")))
+        .toEqual(presetPanels.indicators);
+      expect
+        .soft((await this.reportsLocator.allInnerTexts()).map((txt) => txt.replace(/\u00a0/g, " ")))
+        .toEqual(presetPanels.reports);
+      expect
+        .soft((await this.heatmapsLocator.allInnerTexts()).map((txt) => txt.replace(/\u00a0/g, " ")))
+        .toEqual(presetPanels.heatMaps);
     });
   }
 }

@@ -1,5 +1,5 @@
 {
-  "Charts": [
+  "charts": [
     "Action Implementation By Status",
     "Test Case Execution Failure Trend",
     "Test Case Execution Results",
@@ -12,7 +12,7 @@
     "Test Module Status per Assigned Users",
     "zbox"
   ],
-  "Indicators": ["Test Case Execution", "Test Module Execution", "Test Objective Execution"],
-  "Reports": ["Test Module Execution Results Report"],
-  "Heat Maps": ["Test Case Execution History", "Test Module Execution History"]
+  "indicators": ["Test Case Execution", "Test Module Execution", "Test Objective Execution"],
+  "reports": ["Test Module Execution Results Report"],
+  "heatMaps": ["Test Case Execution History", "Test Module Execution History"]
 }
