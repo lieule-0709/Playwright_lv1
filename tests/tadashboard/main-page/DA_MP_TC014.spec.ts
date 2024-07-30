@@ -36,7 +36,7 @@ test("Verify that 'Public' pages can be visible and accessed by all users of wor
   await loginPage.login(users.adminUser.username, users.adminUser.password);
 
   // Check newly added page is visible
-  await dashboardMPage.pageVisible(pageName);
+  await dashboardMPage.verifyPageVisible(pageName);
 });
 
 test.afterEach("Delete page", async () => {

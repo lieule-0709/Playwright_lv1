@@ -103,7 +103,20 @@ export default class DashboardMainPage {
 
   async verifyPageVisible(pageName: string): Promise<void> {
     await test.step(`Verify that page: ${pageName} is visible`, async () => {
-      await test.expect(this.menuLocator.getByText(pageName, { exact: true })).toBeVisible();
+      const pages: Array<string> = pageName.split("->").map((s) => s.trim());
+
+      if (pages.length == 1) {
+        await test.expect.soft(this.menuLocator.getByText(pageName, { exact: true })).toBeVisible();
+        return;
+      }
+
+      let page: Locator = this.menuLocator.getByText(pages[0], { exact: true });
+      for (let i = 0; i < pages.length; i++) {
+        await page.hover();
+        page = page.getByText(pages[i], { exact: true });
+      }
+      await test.expect(page).toBeVisible();
+
     });
   }
 

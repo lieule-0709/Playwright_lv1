@@ -37,7 +37,7 @@ test(
     await dashboardMainPage.deletePageAndVerifyDialogMessage(deletePageMsg);
 
     // Check children page is deleted
-    await dashboardMainPage.verifyPageVisible(`${parentPageName}->${chillPageName}`);
+    await dashboardMainPage.verifyPageDeleted(`${parentPageName}->${chillPageName}`);
 
     // Click on parent page
     await dashboardMainPage.selectMenu(parentPageName);
