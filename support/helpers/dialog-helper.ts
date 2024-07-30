@@ -6,7 +6,6 @@ export default class DialogHelper {
    */
   public static accept(page: Page) {
     page.on("dialog", async (alert) => {
-      const text = alert.message();
       await alert.accept();
     });
   }
