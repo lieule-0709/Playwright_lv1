@@ -1,4 +1,5 @@
 import { Locator, Page, expect, test } from "fixtures/common-fixture";
+import LocatorHelper from "support/helpers/locator-helper";
 
 export default class DashboardMainPage {
   private readonly menuLocator: Locator = this.page.locator("#main-menu");
@@ -30,6 +31,12 @@ export default class DashboardMainPage {
     await test.step("Select action in setting", async () => {
       await this.settingLocator.hover();
       await this.settingLocator.getByText(action).click();
+    });
+  }
+
+  async verifySettingButtonNotClickable(): Promise<void> {
+    await test.step("Verify Add New link is not clickable", async () => {
+      expect(await LocatorHelper.isClickable(this.settingLocator)).toBe(false);
     });
   }
 
@@ -95,7 +102,7 @@ export default class DashboardMainPage {
     }
 
     for (let i = 0; i < menuItems.length - 1; i++) {
-      this.headMenuLocator.getByText(menuItems[i], { exact: true }).hover();
+      await this.headMenuLocator.getByText(menuItems[i], { exact: true }).hover();
     }
 
     await this.headMenuLocator.getByText(menuItems[menuItems.length - 1], { exact: true }).click();

@@ -1,5 +1,7 @@
 import { Page, test, Locator, expect } from "fixtures/common-fixture";
 import { NewPanelModel } from "models/new-panel-model";
+import DashboardMainPage from "./dashboard-main-page";
+import PanelsPage from "./panels-page";
 
 export default class NewPanelForm {
   private readonly pageLocator: Locator = this.page.locator(".editpanelDlg");
@@ -25,8 +27,12 @@ export default class NewPanelForm {
   async verifyOtherControlDisableOrLock(): Promise<void> {
     await test.step("Verify that all other control/form is disabled or locked.", async () => {
       await expect(this.pageLocator).toBeVisible();
-      //verify that div overlay which has z-index=1001 is visible, it covers all control except new panel form (z-index=1002)
-      await expect(this.overlay).toBeVisible();
+      
+      //verify that add new link and setting button can not be clickable)
+      const dashboardMainPage = new DashboardMainPage(this.page);
+      await dashboardMainPage.verifySettingButtonNotClickable();
+      const panelsPage = new PanelsPage(this.page);
+      await panelsPage.verifyAddNewLinkNotClickable();
     });
   }
 }
