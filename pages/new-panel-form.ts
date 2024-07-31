@@ -27,12 +27,12 @@ export default class NewPanelForm {
   async verifyOtherControlDisableOrLock(): Promise<void> {
     await test.step("Verify that all other control/form is disabled or locked.", async () => {
       await expect(this.pageLocator).toBeVisible();
-      
+
       //verify that add new link and setting button can not be clickable)
       const dashboardMainPage = new DashboardMainPage(this.page);
-      void dashboardMainPage.verifySettingButtonNotClickable();
+      await dashboardMainPage.verifySettingButtonNotClickable();
       const panelsPage = new PanelsPage(this.page);
-      void panelsPage.verifyAddNewLinkNotClickable();
+      await panelsPage.verifyAddNewLinkNotClickable();
     });
   }
 }
