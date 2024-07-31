@@ -1,4 +1,4 @@
-import { test } from "fixtures/user-based-worker-fixture";
+import { test } from "fixtures/common-fixture";
 import { DateTimeHelper } from "support/helpers/date-time-helper";
 
 test(
@@ -54,6 +54,6 @@ test(
     await dashboardMainPage.selectMenu("Overview");
 
     // Check "Delete" link disappears
-    await dashboardMainPage.verifyDeleleLnkDisapear();
+    await dashboardMainPage.verifyDeleteLnkDisappear();
   },
 );

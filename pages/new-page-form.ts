@@ -1,4 +1,4 @@
-import { Page, test, Locator } from "fixtures/user-based-worker-fixture";
+import { Page, test, Locator } from "fixtures/common-fixture";
 import { NewPageModel } from "models/new-page-model";
 
 export default class NewPageForm {

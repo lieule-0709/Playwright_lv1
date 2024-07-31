@@ -14,7 +14,7 @@ export default class ChoosePanelsPage {
   private readonly reportsLocator: Locator = this.page
     .locator(".pitem", { has: this.page.getByText("Reports", { exact: true }) })
     .getByRole("link");
-  private readonly heatmapsLocator: Locator = this.page
+  private readonly heatMapsLocator: Locator = this.page
     .locator(".pitem", { has: this.page.getByText("Heat Maps", { exact: true }) })
     .getByRole("link");
 
@@ -38,7 +38,7 @@ export default class ChoosePanelsPage {
         .soft((await this.reportsLocator.allInnerTexts()).map((txt) => txt.replace(/\u00a0/g, " ")))
         .toEqual(presetPanels.reports);
       expect
-        .soft((await this.heatmapsLocator.allInnerTexts()).map((txt) => txt.replace(/\u00a0/g, " ")))
+        .soft((await this.heatMapsLocator.allInnerTexts()).map((txt) => txt.replace(/\u00a0/g, " ")))
         .toEqual(presetPanels.heatMaps);
     });
   }

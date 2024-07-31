@@ -1,4 +1,4 @@
-import { Page, test, Locator } from "fixtures/user-based-worker-fixture";
+import { Page, test, Locator } from "fixtures/common-fixture";
 import { NewDataProfileModel } from "models/new-data-profile-model";
 
 export default class NewDataProfilePage {
@@ -8,7 +8,7 @@ export default class NewDataProfilePage {
   private readonly nameTxt: Locator = this.profileSettingsDetailLocator.locator("#txtProfileName");
   private readonly fieldsDdl: Locator = this.page.locator("#cbbFields");
   private readonly addLevelBtn: Locator = this.page.getByRole("button", { name: "Add Level" });
-  private readonly sortFieldCriteriasLbl: Locator = this.page.locator(".sortFieldName");
+  private readonly sortFieldCriteriaLbl: Locator = this.page.locator(".sortFieldName");
   private readonly nextBtn: Locator = this.profileSettingsDetailLocator.getByRole("button", { name: "Next" });
   constructor(private readonly page: Page) {}
 
@@ -29,8 +29,8 @@ export default class NewDataProfilePage {
 
   async verifyItemAddedToCriteriaList(field: string): Promise<void> {
     await test.step(`Verify that field: ${field} is added to sorting criteria list`, async () => {
-      const sortFieldCriterias = await this.sortFieldCriteriasLbl.allInnerTexts();
-      test.expect(sortFieldCriterias).toContain(field);
+      const sortFieldCriteria = await this.sortFieldCriteriaLbl.allInnerTexts();
+      test.expect(sortFieldCriteria).toContain(field);
     });
   }
 }

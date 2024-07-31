@@ -18,7 +18,7 @@ export default class PanelsPage {
     await test.step("Delete all panels", async () => {
       await this.checkAllLnk.click();
 
-      //Regist a listener to Accept alert
+      //Regis a listener to Accept alert
       DialogHelper.accept(this.page);
 
       //Click delete multi link

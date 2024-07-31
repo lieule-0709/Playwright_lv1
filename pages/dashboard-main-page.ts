@@ -1,4 +1,4 @@
-import { Locator, Page, expect, test } from "fixtures/user-based-worker-fixture";
+import { Locator, Page, expect, test } from "fixtures/common-fixture";
 
 export default class DashboardMainPage {
   private readonly menuLocator: Locator = this.page.locator("#main-menu");
@@ -95,7 +95,7 @@ export default class DashboardMainPage {
     }
 
     for (let i = 0; i < menuItems.length - 1; i++) {
-      await this.headMenuLocator.getByText(menuItems[i], { exact: true }).hover();
+      this.headMenuLocator.getByText(menuItems[i], { exact: true }).hover();
     }
 
     await this.headMenuLocator.getByText(menuItems[menuItems.length - 1], { exact: true }).click();
@@ -137,8 +137,8 @@ export default class DashboardMainPage {
     });
   }
 
-  async verifyDeleleLnkDisapear(): Promise<void> {
-    await test.step("Verify that delete link is disapear", async () => {
+  async verifyDeleteLnkDisappear(): Promise<void> {
+    await test.step("Verify that delete link is disappear", async () => {
       await test.expect(this.deleteLnk).toHaveCount(0);
     });
   }  

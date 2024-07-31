@@ -14,7 +14,7 @@ test("Verify that 'Public' pages can be visible and accessed by all users of wor
   loginPage,
   dashboardMainPage,
   newPageForm,
-  username,
+  account,
 }) => {
   dashboardMPage = dashboardMainPage;
 
@@ -29,7 +29,7 @@ test("Verify that 'Public' pages can be visible and accessed by all users of wor
   await newPageForm.create({ pageName: pageName, public: true });
 
   // Click on Log out link
-  await dashboardMPage.selectHeadMenu(`${username} -> Logout`);
+  await dashboardMPage.selectHeadMenu(`${account.username} -> Logout`);
 
   // Log in with another valid account
   //(can't create the new acc so I use the existed acc to simulate this step, only do this on exercise :D)

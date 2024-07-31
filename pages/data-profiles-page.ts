@@ -16,7 +16,7 @@ export default class DataProfilesPage {
 
       const prsDataProfiles = await this.presetDataProfileRow.allTextContents();
       for (let i = 0; i < rowCount; i++) {
-        //Replace &nbsp; by space before conpare string
+        //Replace &nbsp; by space before compare string
         expect(prsDataProfiles[i].replace(/\u00a0/g, " ")).toEqual(presetDataProfiles[i]);
       }
     });
