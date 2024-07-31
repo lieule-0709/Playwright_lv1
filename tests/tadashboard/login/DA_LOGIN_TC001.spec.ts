@@ -2,7 +2,8 @@ import { test } from "fixtures/login-fixture";
 
 test("Verify that user can login specific repository successfully via Dashboard login page with correct credentials @SmokeTest", async ({
   loginPage,
-  dashboardMainPage, account
+  dashboardMainPage,
+  account,
 }) => {
   // Navigate to Dashboard login page
   await loginPage.open();

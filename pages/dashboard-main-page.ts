@@ -123,7 +123,6 @@ export default class DashboardMainPage {
         page = page.getByText(pages[i], { exact: true });
       }
       await test.expect(page).toBeVisible();
-
     });
   }
 
@@ -148,5 +147,5 @@ export default class DashboardMainPage {
     await test.step("Verify that delete link is disappear", async () => {
       await test.expect(this.deleteLnk).toHaveCount(0);
     });
-  }  
+  }
 }
