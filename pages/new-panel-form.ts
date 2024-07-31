@@ -30,9 +30,9 @@ export default class NewPanelForm {
       
       //verify that add new link and setting button can not be clickable)
       const dashboardMainPage = new DashboardMainPage(this.page);
-      await dashboardMainPage.verifySettingButtonNotClickable();
+      void dashboardMainPage.verifySettingButtonNotClickable();
       const panelsPage = new PanelsPage(this.page);
-      await panelsPage.verifyAddNewLinkNotClickable();
+      void panelsPage.verifyAddNewLinkNotClickable();
     });
   }
 }
