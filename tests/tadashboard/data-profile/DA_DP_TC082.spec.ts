@@ -24,16 +24,16 @@ test("Verify that user is able to add levels of fields ", async ({
   // Click on "Field" dropped down menu
   // Select an item
   // Click on "Add Level" button
-  newDataProfile.shortFields && (await newDataProfilePage.addSortField(newDataProfile.shortFields[0]));
+  await newDataProfilePage.addSortField(newDataProfile.shortFields[0]);
 
   // Check this item are added to the sorting criteria list
-  newDataProfile.shortFields && (await newDataProfilePage.verifyItemAddedToCriteriaList(newDataProfile.shortFields[0]));
+  await newDataProfilePage.verifyItemAddedToCriteriaList(newDataProfile.shortFields[0]);
 
   // Click on "Field" dropped down menu
   // Select another item
   // Click on "Add Level" button
-  newDataProfile.shortFields && (await newDataProfilePage.addSortField(newDataProfile.shortFields[1]));
+  await newDataProfilePage.addSortField(newDataProfile.shortFields[1]);
 
   // Check this item are added to the sorting criteria list
-  newDataProfile.shortFields && (await newDataProfilePage.verifyItemAddedToCriteriaList(newDataProfile.shortFields[1]));
+  await newDataProfilePage.verifyItemAddedToCriteriaList(newDataProfile.shortFields[1]);
 });

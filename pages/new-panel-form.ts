@@ -8,9 +8,6 @@ export default class NewPanelForm {
   private readonly displayNameTxt: Locator = this.pageLocator.locator("#txtDisplayName");
   private readonly seriesDdl: Locator = this.pageLocator.locator("#cbbSeriesField");
   private readonly okBtn: Locator = this.pageLocator.locator("#OK");
-  private readonly overlay: Locator = this.page.locator(
-    "//div[contains(@class, 'ui-dialog-overlay') and contains(@style, 'z-index: 1001;')]",
-  );
 
   constructor(private readonly page: Page) {}
 
