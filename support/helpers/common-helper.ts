@@ -1,5 +1,5 @@
 export default class CommonHelper {
-  static async delay(miliseconds: number): Promise<void> {
-    return new Promise((resolve) => setTimeout(resolve, miliseconds));
+  static async delay(milliseconds: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
   }
 }
